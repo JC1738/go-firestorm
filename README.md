@@ -50,7 +50,10 @@ Parent is optional. The id field must be a string but can be called anything.
 client, _ := app.Firestore(ctx)
 fsc := firestorm.New(client, "ID", "")
 ```
-
+3. Optional. For optimal caching to work consider adding the CacheHandler
+```go
+http.HandleFunc("/", firestorm.CacheHandler(otherHandler))
+```
 #### Basic CRUD example
 **Note:** Recursive Create/Delete is not supported and must be called on every entity.
 So to create an A->B relation. Create B first so the B.ID has been created and the create A.
