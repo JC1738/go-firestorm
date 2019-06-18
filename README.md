@@ -1,6 +1,5 @@
 # go-firestorm
 Go ORM ([Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)) for [Google Cloud Firestore](https://cloud.google.com/firestore/). 
-Still very early stage so things may change.
 
 #### Goals
 1. Easy to use

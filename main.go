@@ -24,8 +24,8 @@ func (fsc *FSClient) NewRequest() *request {
 	return r
 }
 
-// Create a firestorm client and supply the names of the id and parent fields of your model structs
-// Leave parent blank if not needed
+// New creates a firestorm client. Supply the names of the id and parent fields of your model structs
+// Leave parent blank if sub-collections are not used.
 func New(client *firestore.Client, id, parent string) *FSClient {
 	c := &FSClient{}
 	c.Client = client
