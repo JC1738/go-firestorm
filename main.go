@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// FSClient is the client used to perform the CRUD actions
 type FSClient struct {
 	Client           *firestore.Client
 	MapToDB          *mapper.Mapper
@@ -15,8 +16,9 @@ type FSClient struct {
 	IsEntity         func(i interface{}) bool
 }
 
-func (fsc *FSClient) NewRequest() *request {
-	r := &request{}
+// NewRequest creates a new CRUD Request to firestore
+func (fsc *FSClient) NewRequest() *Request {
+	r := &Request{}
 	r.FSC = fsc
 	r.mapperFunc = func(i map[string]interface{}) {
 		return

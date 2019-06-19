@@ -1,4 +1,4 @@
-package firestorm_tests
+package firestormtests
 
 import (
 	"cloud.google.com/go/firestore"
@@ -96,6 +96,9 @@ func TestSearch(t *testing.T) {
 }
 
 func TestConcurrency(t *testing.T) {
+	if testing.Short() {
+		return
+	}
 	car := &Car{Make: "Toyota"}
 
 	// Create the entity

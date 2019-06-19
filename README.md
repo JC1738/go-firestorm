@@ -1,5 +1,11 @@
+[![pipeline status](https://gitlab.com/jens.schoedt/go-firestorm/badges/master/pipeline.svg)](https://gitlab.com/jens.schoedt/go-firestorm/commits/master)
+[![coverage report](https://gitlab.com/jens.schoedt/go-firestorm/badges/master/coverage.svg)](https://gitlab.com/jens.schoedt/go-firestorm/commits/master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jschoedt/go-firestorm)](https://goreportcard.com/report/github.com/jschoedt/go-firestorm)
+[![GoDoc](https://godoc.org/github.com/jschoedt/go-firestorm?status.svg)](https://godoc.org/github.com/jschoedt/go-firestorm)
+
 # go-firestorm
 Go ORM ([Object-relational mapping](https://en.wikipedia.org/wiki/Object-relational_mapping)) for [Google Cloud Firestore](https://cloud.google.com/firestore/). 
+
 
 #### Goals
 1. Easy to use
@@ -130,8 +136,9 @@ if result[0].ID != car.ID || result[0].Make != car.Make {
 [More examples](https://github.com/jschoedt/go-firestorm/blob/master/tests/integration_test.go)
 
 #### Concurrent requests
-All CRUD operations are asynchronous and return a future func that when called blocks until the operation is done.
+All CRUD operations are asynchronous and return a future func that when called will block until the operation is done.
 
+**NOTE:** the state of the entities is undefined until the future func returns.   
 ```go
 car := &Car{Make:"Toyota"}
 
